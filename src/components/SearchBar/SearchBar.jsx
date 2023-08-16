@@ -1,4 +1,5 @@
 import React from "react";
+import style from './SearchBar.module.css'
 export default function SearchBar(props) {
    console.log(props.onSearch)
    return (
