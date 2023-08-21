@@ -1,3 +1,6 @@
-.cards{
+.cardBoard {
 
+  margin-block: auto;
+  align-self: bottom;
+  margin-inline: auto;
 }

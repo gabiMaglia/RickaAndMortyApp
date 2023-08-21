@@ -8,7 +8,7 @@ const DivBox = styled.div`
   flex: 1;
   text-align: center;
   margin: 1rem;
-  box-shadow: 10px 10px 2px #707070;
+  box-shadow: 7px 9px 3px #707070;
   `;
 const InfoLabel = styled.label`
     display: block;
@@ -19,6 +19,7 @@ const InfoLabel = styled.label`
 
 const Info = styled.h4`
   margin: 0;
+  
 `;
 
 const InfoBox = ({ title, info }) => {

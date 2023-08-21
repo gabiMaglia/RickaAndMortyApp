@@ -31,7 +31,7 @@ export default [
       species: 'Human',
       gender: 'Male',
       origin: {
-         name: 'unknown',
+         name: 'Unknown -',
          url: '',
       },
       image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',

@@ -6,14 +6,28 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-  
+ 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
+  height: 100dvh;
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/030/235/356/large/bagas-pangestu-labconcept.jpg?1600013735);
+    /* background-image: url(https://assets.housingsnap.com/uploads/paragraph/image/184546/078bf2e3f3cf12a8e8d6f57e937d3c20_copyright.jpg); */
+    /* background-image: url('./assets/background.jpg'); */
+    background-repeat:repeat-y;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
+body {
+  margin: 0;
+}
+
+
+
+
 
 
 

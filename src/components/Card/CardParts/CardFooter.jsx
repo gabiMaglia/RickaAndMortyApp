@@ -5,6 +5,7 @@ import  styled  from "styled-components";
 
 const Footer = styled.footer `
     margin-bottom: 2.5rem;
+  
 `
     
 

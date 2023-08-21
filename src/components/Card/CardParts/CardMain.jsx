@@ -18,15 +18,24 @@ const CardMain = ({ name, image, status, species, gender, title }) => {
   );
 };
 
-const MainDiv = styled.div``;
-const ImgCont = styled.div`
-  position: relative;
-  display: inline-block;
-  margin: 2rem 1rem;
+const MainDiv = styled.div`
+border-top: 1px solid white;
+border-bottom: none;
 `;
+
+const ImgCont = styled.div`
+  display: inline-block;
+  margin: 2rem 0;
+  position: relative;
+  `;
 
 const Img = styled.img`
   display: block;
+  width: 75%;
+  padding: .2rem;
+  margin-inline: auto;
+  border-radius: 12px;
+  border: 3px solid white;
 `;
 const Status = styled.h3`
   position: absolute;
@@ -34,7 +43,7 @@ const Status = styled.h3`
   left: 0;
   width: 100%;
 
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 10px 0;
   margin: 0;

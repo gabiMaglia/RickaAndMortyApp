@@ -5,12 +5,13 @@ export default function Cards(props) {
   const characters = props.characters;
   return (
 
-    <div className={style.cards}>
+    <div className={style.cardBoard}>
       
       {
 
       characters.map((e, key) => {
         return (
+
           <Card
             key={key}
             id={e.id}
@@ -23,6 +24,7 @@ export default function Cards(props) {
             onClose={() => window.alert("Emulamos que se cierra la card")}
           />
         );
+        
       })
       
       }
