@@ -1,18 +1,16 @@
 import React from 'react'
 import styles from './NavBar.module.css'
 import logo from "../../assets/logo/logo.png"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMailBulk } from '@fortawesome/free-solid-svg-icons';
+import SearchBar from '../SearchBar/SearchBar'
 
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
-    
     <nav className={styles.navBar}>
         <img src= {logo} className={styles.brand}></img>
-        <a href=""><FontAwesomeIcon icon={faMailBulk} /></a>      
+        <SearchBar maxChar = {props.maxChar} addNew = {props.addCharacter} clearBoard = {props.clear}/>
+        
     </nav>
   )
 }

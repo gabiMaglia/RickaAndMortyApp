@@ -9,7 +9,7 @@ export default function Card(props) {
 
   return (
     <div className={style.card}>
-      <CardHeader event={props.onClose} name={name} />
+      <CardHeader id = {id} event={props.onClose} name={name} />
 
       <CardMain
         name={name}

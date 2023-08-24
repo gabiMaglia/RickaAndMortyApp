@@ -1,20 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 
-// Recibe nombre y un evento para el boton
 
-const CardHeader = ({ event, name }) => {
+const CardHeader = ({ id, event, name }) => {
+
+  const handleClose = () => {
+    event(id)
+  }
+
   return (
     <HeaderDiv>
-      <CloseButton onClick={event}></CloseButton>
+      <CloseButton onClick={handleClose}></CloseButton>
       <CardName>{name}</CardName>
     </HeaderDiv>
   );
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const HeaderDiv = styled.header`
   background-color: black;
   display: flex;
+  min-height: 60px;
+ width: 320px;
   justify-content: space-between;
   animation: light 5s infinite;
   
@@ -89,6 +109,8 @@ const CloseButton = styled.button`
   }
 `;
 const CardName = styled.h2`
+font-size: 20px;
+font-weight: 800;
   color: white;
   margin-right: 1rem;
 `;

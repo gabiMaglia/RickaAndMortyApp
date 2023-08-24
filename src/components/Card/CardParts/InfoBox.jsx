@@ -15,10 +15,12 @@ const InfoLabel = styled.label`
     background-color: black;
     color: white;
     height: 2rem;
-`;
+    
+    `;
 
 const Info = styled.h4`
   margin: 0;
+
   
 `;
 
@@ -36,7 +38,7 @@ const InfoBox = ({ title, info }) => {
       {primerEspacioIndex !== -1 ? (
         <Info style={{ whiteSpace: 'pre' }}>{slicedInfo}</Info>
       ) : (
-        <Info>{info}</Info>
+        <Info style={{ whiteSpace: 'pre' }} >{info + "\n" + " "}</Info>
       )}
     </DivBox>
   );

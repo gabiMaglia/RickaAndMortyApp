@@ -1,7 +1,7 @@
 
 
 .stars, .twinkling, .clouds {
-    position: absolute;
+    position: fixed;
     display: block;
     top: 0;
     bottom: 0;
@@ -19,13 +19,15 @@
   .twinkling {
     z-index: -1;
     background: transparent url("https://i.imgur.com/XYMF4ca.png") repeat top center;
-    animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 500s linear infinite;
+    
   }
   
   .clouds {
     z-index: -1;
     background: transparent url("https://i.imgur.com/mHbScrQ.png") repeat top center;
     animation: move-clouds-back 200s linear infinite;
+    opacity: 0.2;
   }
   
   @keyframes move-twink-back {
