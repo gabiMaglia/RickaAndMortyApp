@@ -1,4 +1,4 @@
-import React from "react";
+
 import styles from "./starsBackground.module.css";
 
 const StarsBackground = () => {

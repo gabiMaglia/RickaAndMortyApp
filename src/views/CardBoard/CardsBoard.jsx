@@ -1,5 +1,5 @@
-import Card from "../Card/Card";
-import style from "./Cards.module.css";
+import Card from "../../components/Card/Card";
+import style from "./CardBoard.module.css";
 
 export default function Cards(props) {
   return (

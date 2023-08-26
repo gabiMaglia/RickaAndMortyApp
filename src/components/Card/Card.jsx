@@ -3,11 +3,13 @@ import style from "./Card.module.css";
 import CardHeader from "./CardParts/CardHeader";
 import CardMain from "./CardParts/CardMain";
 import CardFooter from "./CardParts/CardFooter";
+import { NavLink } from "react-router-dom";
 
 export default function Card(props) {
   const { id, name, status, species, gender, origin, image } = props;
 
   return (
+  
     <div className={style.card}>
       <CardHeader id = {id} event={props.onClose} name={name} />
 
@@ -18,9 +20,11 @@ export default function Card(props) {
         species={species}
         gender={gender}
       />
-
-      <CardFooter title="Origin" info={origin}/ >
-      
+      <NavLink to = {`/details/${id}`} >
+        
+        <CardFooter title="Details" info={origin}/ >
+        
+      </NavLink>
 
     </div>
   );
