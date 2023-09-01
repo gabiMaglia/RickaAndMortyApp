@@ -1,19 +1,30 @@
 import React from "react";
-import InfoBox from "./InfoBox";
-import  styled  from "styled-components";
 
+import styled from "styled-components";
 
-const Footer = styled.footer `
-    margin-bottom: 2.5rem;
-  
-`
-    
+const Footer = styled.footer`
+  margin-top: 25px;
+  border: 2px solid white;
+  height: 4.5rem;
+  display: grid;
+  place-content: center;
+  background-color: black;
+`;
+const Detail = styled.p`
+  font-size: 16px;
+  color: white;
+  font-weight: 800;
+`;
+/**
+ * This function represents the Card Footer
+ *
+ * @returns {React.JSX}
+ */
 
-const CardFooter = ({title, info}) => {
-
-    return (
+const CardFooter = ({ title }) => {
+  return (
     <Footer>
-      <InfoBox title={title} info={info} />
+      <Detail>{title.toUpperCase()}</Detail>
     </Footer>
   );
 };

@@ -1,17 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-
+/**
+ * This function represents the Card Header
+ *
+ * @returns {React.JSX}
+ */
 
 const CardHeader = ({ id, event, name }) => {
+  const regEx =/^[^\s]+\s+[^\s]+/;
+  const result = name.match(regEx)
 
   const handleClose = () => {
     event(id)
   }
+  
 
   return (
     <HeaderDiv>
       <CloseButton onClick={handleClose}></CloseButton>
-      <CardName>{name}</CardName>
+      <CardName>{
+      result?
+        result[0]
+      :name
+      
+      }</CardName>
     </HeaderDiv>
   );
 };
@@ -34,7 +46,8 @@ const HeaderDiv = styled.header`
   background-color: black;
   display: flex;
   min-height: 60px;
- width: 320px;
+   width: 320px;
+   width: 100%;
   justify-content: space-between;
   animation: light 5s infinite;
   
@@ -74,15 +87,15 @@ const HeaderDiv = styled.header`
       box-shadow: 0px 29px 45px -22px rgba(255, 255, 255, 1);
     }
   }
-`;
-const CloseButton = styled.button`
+  `;
+const CloseButton = styled.i`
   width: 60px;
   color: black;
   background-color: black;
-
   position: relative;
-  border: 0.1px solid grey;
-
+  outline: none!important;
+  /* border: 0.1px solid grey; */
+  
   &:before,
   &:after {
     content: "";
@@ -107,9 +120,9 @@ const CloseButton = styled.button`
       transform: translate(-50%, -50%) rotate(180deg);
     }
   }
-`;
+  `;
 const CardName = styled.h2`
-font-size: 20px;
+font-size: 120%;
 font-weight: 800;
   color: white;
   margin-right: 1rem;

@@ -1,13 +1,17 @@
 .card {
-    
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     text-decoration: none;
     min-width: fit-content;
     border: 3px solid var(--mainBorderColor);;
     background-color: white;
-    display: inline-block;
+   
     background-image: url(https://i.pinimg.com/564x/9a/d8/ea/9ad8eaf34c647527ae396f562f77857a.jpg);
     transform: scale(0.9);
     /* animation: waveMove 4s linear infinite; */
+}
+.link{
+  text-decoration: none;
 }
 
 

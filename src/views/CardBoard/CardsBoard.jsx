@@ -1,8 +1,19 @@
 import Card from "../../components/Card/Card";
 import style from "./CardBoard.module.css";
 
+
+
+
 export default function Cards(props) {
+ /**
+ * This function represents the CA page
+ * 
+ * @returns {React.JSX}
+ */
+
+
   return (
+    
     <div className={style.cardBoard}>
       {props.characters.map((e, key) => {
         return (

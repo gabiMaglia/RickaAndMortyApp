@@ -2,6 +2,12 @@ import React from "react";
 import InfoBox from "./InfoBox";
 import { styled } from "styled-components";
 
+
+/**
+ * This function represents the Card Main
+ *
+ * @returns {React.JSX}
+ */
 const CardMain = ({ name, image, status, species, gender, title }) => {
   return (
     <MainDiv>
@@ -30,7 +36,7 @@ const ImgCont = styled.div`
   `;
 
 const Img = styled.img`
-
+  min-width: 235px;
   display: block;
   width: 75%;
   padding: .2rem;
@@ -41,13 +47,13 @@ const Img = styled.img`
 const Status = styled.h3`
   position: absolute;
   bottom: 3px;
-  left: 40px;
-  width: 74%;
+  left: 38px;
+  width: 76%;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   background-color: rgba(0, 0, 0, 0.5);
   color: var(--mainFontColor);
-  padding: 10px 2px;
+  padding: 10px 0;
   margin: 0;
   text-align: center;
 `;

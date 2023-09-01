@@ -1,6 +1,11 @@
+
+  /**
+ * Routes Object
+ */
+
 const PATH_ROUTES = {
-    HOME : '/',
-    CARDBOARD: '/cardboard',
+    LOGIN : '/',
+    HOME: '/home',
     ABOUT: '/about',
  
 

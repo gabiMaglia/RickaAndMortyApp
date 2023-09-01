@@ -1,61 +1,79 @@
 import { React, useState } from "react";
 
 import styled from "styled-components";
+import NavBtn from "../common/NavBtn";
 
-export default function SearchBar({addNew, maxChar, clearBoard}) {
-  const [input, setintput] = useState('');
 
+
+export default function SearchBar({ addNew, maxChar, clearBoard }) {
+  /**
+  * This function represents the SearchBar
+  * 
+  * @returns {React.JSX}
+  */
+  const [input, setintput] = useState("");
+
+  /**
+   * Function that handle inputs write action
+   */
   const handleWrite = (e) => {
     const inputValue = Number(e.target.value);
     setintput(inputValue);
   };
 
+  /**
+   * Function that handles random search
+   */
   const handleRandomSearch = () => {
     const random = Math.trunc(Math.random() * maxChar);
     addNew(random);
   };
-
+  /**
+   * Function that handle how to clear the board
+   */
   const handleClear = () => {
-    clearBoard()
-  }
+    clearBoard();
+  };
+
+  /**
+   * Function that handle inputs write action
+   *  @param {Event} title - The title of the book.
+   */
   const handleIdSearch = (e) => {
-    input && typeof input === 'number'
+    input && typeof input === "number"
       ? addNew(input)
       : window.alert(`insert a number between 1 and ${maxChar}`);
-      e.target.previousSibling.value = ''
-      setintput('')
+    e.target.previousSibling.value = "";
+    setintput("");
   };
 
   return (
     <SearchBarCont>
-      <SearchButton onClick={handleClear}>Clear </SearchButton>
-      <SearchButton onClick={handleRandomSearch}>
-        Random
-      </SearchButton>
-      <SearchInput placeholder="insert id" onChange={handleWrite} type="search" />
-      <SearchButton onClick={handleIdSearch}>Add</SearchButton>
+      <div onClick={handleClear}>
+        <NavBtn content="Clear" />
+      </div>
+      <div onClick={handleRandomSearch}>
+        <NavBtn content="Random" />
+      </div>
+      <SearchInput
+        placeholder="insert id"
+        onChange={handleWrite}
+        type="search"
+      />
+      <div onClick={handleIdSearch}>
+        <NavBtn content="Add" />
+      </div>
     </SearchBarCont>
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
+// 
 
 const SearchBarCont = styled.div`
   text-align: center;
   display: flex;
   gap: 2rem;
   align-items: center;
-
 `;
 
 const SearchInput = styled.input`
@@ -64,7 +82,7 @@ const SearchInput = styled.input`
   text-decoration: none;
   text-transform: uppercase;
   text-align: right;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 2px;
   text-shadow: var(--mainFontColor) 1px 0 5px;
@@ -73,27 +91,5 @@ const SearchInput = styled.input`
   width: 420px;
   height: 3.3rem;
   background-color: rgba(0, 0, 0, 0.034);
-  color: white;
   outline: none;
-  
- 
-`;
-const SearchButton = styled.button`
-  position: relative;
-  color: var(--mainFontColor);
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-shadow: (--mainBorderColor) 1px 0 10px;
-  text-align: right;
-  height: 63px;
-  width: 66px;
-  border: solid 1px var(--mainBorderColor);
-  border-radius: 175px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 `;

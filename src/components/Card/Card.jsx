@@ -1,17 +1,28 @@
 import React from "react";
-import style from "./Card.module.css";
+import styles from "./Card.module.css";
 import CardHeader from "./CardParts/CardHeader";
 import CardMain from "./CardParts/CardMain";
 import CardFooter from "./CardParts/CardFooter";
 import { NavLink } from "react-router-dom";
 
+/**
+ * Represents a card.
+ * @param {number} id -
+ * @param {string} name -
+ * @param {string} status -
+ * @param {string} species -
+ * @param {string} gender -
+ * @param {string} origin -
+ * @param {string} image -
+ * @returns {React.JSX}
+ */
+
 export default function Card(props) {
   const { id, name, status, species, gender, origin, image } = props;
 
   return (
-  
-    <div className={style.card}>
-      <CardHeader id = {id} event={props.onClose} name={name} />
+    <article className={styles.card}>
+      <CardHeader id={id} event={props.onClose} name={name} />
 
       <CardMain
         name={name}
@@ -20,12 +31,9 @@ export default function Card(props) {
         species={species}
         gender={gender}
       />
-      <NavLink to = {`/details/${id}`} >
-        
-        <CardFooter title="Details" info={origin}/ >
-        
+      <NavLink className={styles.link} to={`/details/${id}`}>
+        <CardFooter title="Details" info={origin} />
       </NavLink>
-
-    </div>
+    </article>
   );
 }

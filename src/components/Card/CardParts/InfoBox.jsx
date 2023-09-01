@@ -9,37 +9,33 @@ const DivBox = styled.div`
   text-align: center;
   margin: 1rem;
   box-shadow: 7px 9px 3px #707070;
-  `;
+`;
 const InfoLabel = styled.label`
-    display: block;
-    background-color: black;
-    color: white;
-    height: 2rem;
-    
-    `;
+  display: block;
+  background-color: black;
+  color: white;
+  height: 2rem;
+`;
 
 const Info = styled.h4`
   margin: 0;
+  height: 3rem;
+  display: grid;
+  place-content: center;
 
-  
 `;
 
+/**
+ * This function represents the balck and white info box in the cards and detail
+ *
+ * @returns {React.JSX}
+ */
+
 const InfoBox = ({ title, info }) => {
-  const primerEspacioIndex = info.indexOf(" ");
-  
-  const slicedInfo =
-    info.slice(0, primerEspacioIndex + 1) +
-    "\n" +
-    info.slice(primerEspacioIndex + 1);
-  
   return (
     <DivBox>
       <InfoLabel htmlFor="gender">{title}</InfoLabel>
-      {primerEspacioIndex !== -1 ? (
-        <Info style={{ whiteSpace: 'pre' }}>{slicedInfo}</Info>
-      ) : (
-        <Info style={{ whiteSpace: 'pre' }} >{info + "\n" + " "}</Info>
-      )}
+      <Info>{info}</Info>
     </DivBox>
   );
 };

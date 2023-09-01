@@ -1,6 +1,10 @@
 
 import styles from "./starsBackground.module.css";
-
+  /**
+ * This function represents the animated background 
+ * 
+ * @returns {React.JSX}
+ */
 const StarsBackground = () => {
   return (
     <div>
