@@ -28,13 +28,13 @@ function App() {
 
   const maxCharacters = 826;
 
-//   useEffect(() => {
-//     /**
-//      * this acts as a keylock
-//      * if it isnt logged it will redirect you to the '/' 
-//      * */
-//     !access && navigate('/');
-//  }, [access]);
+  useEffect(() => {
+    /**
+     * this acts as a keylock
+     * if it isnt logged it will redirect you to the '/' 
+     * */
+    !access && navigate('/');
+ }, [access]);
 
 
  const login = (userData) => {
@@ -57,7 +57,8 @@ function App() {
      * Logout Function
      */
     setAccess(false);
-    navigate("/");
+    navigate("/login");
+   
   };
   const addCard = (id) => {
     /**
@@ -108,8 +109,8 @@ function App() {
             element={<CardBoard characters={character} close={closeCard} />}
           />
           <Route path={ROUTES.ABOUT} element={<AboutMe />} />
-          <Route path="/error" element={<Error404 />} />
           <Route path="/details/:id" element={<CardDetail />} />
+          <Route path='/*' element={<Error404 />} />
         </Routes>
 
         <Footer

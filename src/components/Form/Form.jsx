@@ -33,10 +33,7 @@ const Form = ({ loginFunction }) => {
     setErrors(validateUser({ ...userData, [input]: value }));
     setUserData({ ...userData, [input]: value });
   };
-  const handleFade = (e) => {
-    fadeFx.fadeIn(e);
-    fadeFx.fadeOut(e);
-  };
+
 
   const handleFormSubmit = (e) => {
     /**

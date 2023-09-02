@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Card.module.css";
 import CardHeader from "./CardParts/CardHeader";
 import CardMain from "./CardParts/CardMain";
 import CardFooter from "./CardParts/CardFooter";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 /**
  * Represents a card.
@@ -19,6 +20,14 @@ import { NavLink } from "react-router-dom";
 
 export default function Card(props) {
   const { id, name, status, species, gender, origin, image } = props;
+  const despatch = useDispatch()
+
+  const [isFav, setIsfav] = useState(false)
+
+  const handleFavBtn = (e) => {
+    
+  }
+
 
   return (
     <article className={styles.card}>
@@ -31,9 +40,15 @@ export default function Card(props) {
         species={species}
         gender={gender}
       />
-      <NavLink className={styles.link} to={`/details/${id}`}>
-        <CardFooter title="Details" info={origin} />
-      </NavLink>
+      <div className={styles.footer}>
+        <NavLink className={styles.link} to={`/details/${id}`}>
+          <CardFooter title="FAVOURITE" />
+        </NavLink>
+        <NavLink className={styles.link} to={`/details/${id}`}>
+          <CardFooter title="Details..."/>
+        </NavLink>
+      </div>
+
     </article>
   );
 }

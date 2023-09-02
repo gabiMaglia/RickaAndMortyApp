@@ -10,6 +10,13 @@ const CardHeader = ({ id, event, name }) => {
   const regEx =/^[^\s]+\s+[^\s]+/;
   const result = name.match(regEx)
 
+
+  /**
+ * This function represents the Card Footer
+ *
+ * 
+ */
+
   const handleClose = () => {
     event(id)
   }

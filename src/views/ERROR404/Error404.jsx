@@ -1,12 +1,14 @@
 import React from 'react'
 import './error404.css'
 import { NavLink } from 'react-router-dom'
+import NavBtn from '../../components/common/NavBtn'
   /**
  * This function represents the ERROR404 page
  * 
  * @returns {React.JSX}
  */
 export const Error404 = () => {
+
   return (
     <section className='errorPage'>
     <div className="page_404">
@@ -109,7 +111,7 @@ export const Error404 = () => {
           small typo when entering the address. Go to the main page.
         </p>
         <NavLink className="page_404__link" to="/">
-          Go Home
+          <NavBtn content={'GO HOME'}/>
         </NavLink>
       </div>
     </div>

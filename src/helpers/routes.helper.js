@@ -7,7 +7,7 @@ const PATH_ROUTES = {
     LOGIN : '/',
     HOME: '/home',
     ABOUT: '/about',
- 
+    ERROR404: '/error'
 
 }
 
