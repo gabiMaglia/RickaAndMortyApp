@@ -1,5 +1,5 @@
 import { ADD_FAVOURITE, REMOVE_FAVOURITE } from "./actions";
-import { fetchCharacterById } from "../services/apiCall";
+
 
 const initialState = {
   myFavourites: [],
@@ -13,9 +13,6 @@ export  const rootReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_FAVOURITE:
-      const newCard = fetchCharacterById(Number(action.payload)).then(
-        (data) => data
-      );
       return {
         ...state,
         myFavourites: [...state.myFavourites, newCard],
@@ -30,7 +27,7 @@ export  const rootReducer = (state = initialState, action) => {
         ],
       };
     default:
-      return state ;
+      return {...state} ;
      
   }
 };

@@ -17,7 +17,6 @@ const Form = ({ loginFunction }) => {
   // userName & Pass state errors
   const [errors, setErrors] = useState({
     username: "",
-
     password: "",
   });
 
@@ -41,8 +40,6 @@ const Form = ({ loginFunction }) => {
      */
     e.preventDefault();
     loginFunction(userData);
-
-  
   };
 
   return (
