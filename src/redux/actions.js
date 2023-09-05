@@ -3,6 +3,7 @@ export const REMOVE_FAVOURITE = "removeFav";
 
 
 const addFav = (character) => {
+
   return { type: ADD_FAVOURITE, payload: character };
 };
 

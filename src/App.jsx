@@ -16,6 +16,7 @@ import ROUTES from "./helpers/routes.helper.js";
 import CardDetail from "./views/CardDetail/CardDetail.jsx";
 import { fetchCharacterById } from "./services/apiCall.js";
 import { Error404 } from "./views/ERROR404/Error404.jsx";
+import Favorites from "./views/Favorites/Favorites.jsx";
 
 function App() {
   // Card collection state
@@ -109,6 +110,7 @@ function App() {
             element={<CardBoard characters={character} close={closeCard} />}
           />
           <Route path={ROUTES.ABOUT} element={<AboutMe />} />
+          <Route path={ROUTES.FAVORITE} element={<Favorites />} />
           <Route path="/details/:id" element={<CardDetail />} />
           <Route path='/*' element={<Error404 />} />
         </Routes>

@@ -1,0 +1,10 @@
+.cardBoard {
+    max-width: 100vw;
+  
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+  
+    overflow-x: scroll;
+  }
+  

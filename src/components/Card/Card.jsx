@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Card.module.css";
 import CardHeader from "./CardParts/CardHeader";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { addFav } from "../../redux/actions";
 import { removeFav } from "../../redux/actions";
 import InfoBox from "./CardParts/InfoBox";
@@ -18,28 +18,29 @@ import InfoBox from "./CardParts/InfoBox";
  * @returns {React.JSX}
  */
 
-export default function Card(props) {
-  const { id, name, status, species, gender, image } = props;
-  const dispatch = useDispatch();
+function Card(props) {
+  const { id, name, status, species, gender, image, addToFav, removeFromFav, myFavorites } = props;
+
 
   const [isFav, setIsfav] = useState(false);
 
-  const handleFavBtn = (e) => {
-    console.log("llego");
-    if (isFav) {
-      removeFav(id);
-      setIsfav(true);
-    } else {
-      addFav(id);
-      setIsfav(false);
-    }
+  const handleFavBtn = () => {
+
+    isFav ? removeFromFav(id) : addToFav(props)
+    setIsfav(!isFav)
   };
 
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === props.id) {
+        setIsfav(true);
+      }
+    });
+
+  }, [myFavorites]);
   return (
     <article className={styles.card}>
       <CardHeader id={id} event={props.onClose} name={name} />
-
-
       <div className={styles.mainDiv}>
         <div className={styles.imgCont}>
           <img className={styles.img} src={image} alt={name} />
@@ -52,8 +53,14 @@ export default function Card(props) {
       </div>
 
       <div className={styles.footer}>
-        <i className={styles.link}>
-          <div className={styles.isFav} >Favourites</div>
+        <i >
+          {
+            isFav ? (
+              <i className={styles.link} onClick={handleFavBtn}>❤️</i>
+            ) : (
+              <i className={styles.link} onClick={handleFavBtn}>🤍</i>
+            )
+          }
         </i>
         <NavLink className={styles.link} to={`/details/${id}`}>
           <div className={styles.detail}> Details... </div>
@@ -62,3 +69,26 @@ export default function Card(props) {
     </article>
   );
 }
+
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToFav: (character) => {
+      dispatch(addFav(character))
+    },
+
+    removeFromFav: (id) => {
+      dispatch(removeFav(id))
+    }
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card)

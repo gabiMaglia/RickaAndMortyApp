@@ -1,5 +1,7 @@
-import React from "react";
+import { React, useEffect } from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+
 /**
  * This function represents the Card Header
  *
@@ -7,8 +9,14 @@ import styled from "styled-components";
  */
 
 const CardHeader = ({ id, event, name }) => {
-  const regEx = /^[^\s]+\s+[^\s]+/;
+  const regEx = /^[^\s]+\s+[^\s]+[^\s]+w/;
   const result = name.match(regEx);
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    console.log(pathname)
+  }, [])
+
 
   const handleClose = () => {
     event(id);
@@ -16,8 +24,12 @@ const CardHeader = ({ id, event, name }) => {
 
   return (
     <HeaderDiv>
-      <CloseButton onClick={handleClose}></CloseButton>
-      <CardName>{result ? result[0] : name}</CardName>
+      {pathname === "/favorite" ?
+        null
+        :
+        <CloseButton onClick={handleClose}></CloseButton>
+      }
+      <CardName>{result ? result[0] + "..." : name}</CardName>
     </HeaderDiv>
   );
 };
@@ -74,7 +86,6 @@ const CloseButton = styled.i`
   position: relative;
   outline: none !important;
   /* border: 0.1px solid grey; */
-
   &:before,
   &:after {
     content: "";
@@ -99,8 +110,9 @@ const CloseButton = styled.i`
       transform: translate(-50%, -50%) rotate(180deg);
     }
   }
-`;
+  `;
 const CardName = styled.h2`
+  flex: 1;
   font-size: 120%;
   font-weight: 800;
   color: white;
