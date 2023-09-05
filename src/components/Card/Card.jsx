@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Card.module.css";
 import CardHeader from "./CardParts/CardHeader";
-import CardMain from "./CardParts/CardMain";
-import CardFooter from "./CardParts/CardFooter";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { addFav } from "../../redux/actions";
+import { removeFav } from "../../redux/actions";
+import InfoBox from "./CardParts/InfoBox";
 /**
  * Represents a card.
  * @param {number} id -
@@ -19,36 +19,46 @@ import { useDispatch } from "react-redux";
  */
 
 export default function Card(props) {
-  const { id, name, status, species, gender, origin, image } = props;
-  const despatch = useDispatch()
+  const { id, name, status, species, gender, image } = props;
+  const dispatch = useDispatch();
 
-  const [isFav, setIsfav] = useState(false)
+  const [isFav, setIsfav] = useState(false);
 
   const handleFavBtn = (e) => {
-    
-  }
-
+    console.log("llego");
+    if (isFav) {
+      removeFav(id);
+      setIsfav(true);
+    } else {
+      addFav(id);
+      setIsfav(false);
+    }
+  };
 
   return (
     <article className={styles.card}>
       <CardHeader id={id} event={props.onClose} name={name} />
 
-      <CardMain
-        name={name}
-        image={image}
-        status={status}
-        species={species}
-        gender={gender}
-      />
-      <div className={styles.footer}>
-        <NavLink className={styles.link} to={`/details/${id}`}>
-          <CardFooter title="FAVOURITE" />
-        </NavLink>
-        <NavLink className={styles.link} to={`/details/${id}`}>
-          <CardFooter title="Details..."/>
-        </NavLink>
+
+      <div className={styles.mainDiv}>
+        <div className={styles.imgCont}>
+          <img className={styles.img} src={image} alt={name} />
+          <div className={styles.status}>{status}</div>
+        </div>
+        <div className={styles.infoDiv}>
+          <InfoBox title="Species" info={species} />
+          <InfoBox title="Gender" info={gender} />
+        </div>
       </div>
 
+      <div className={styles.footer}>
+        <i className={styles.link}>
+          <div className={styles.isFav} >Favourites</div>
+        </i>
+        <NavLink className={styles.link} to={`/details/${id}`}>
+          <div className={styles.detail}> Details... </div>
+        </NavLink>
+      </div>
     </article>
   );
 }

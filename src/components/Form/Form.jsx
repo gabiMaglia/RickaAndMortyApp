@@ -1,5 +1,4 @@
-import React, { Component, useState } from "react";
-import NavBtn from "../../components/common/NavBtn";
+import React, { useState } from "react";
 import styles from "./form.module.css";
 import { validateUser } from "./validate.js";
 
@@ -34,7 +33,6 @@ const Form = ({ loginFunction }) => {
     setUserData({ ...userData, [input]: value });
   };
 
-
   const handleFormSubmit = (e) => {
     /**
      * This function handles reaction of submiting the imputs
@@ -43,6 +41,8 @@ const Form = ({ loginFunction }) => {
      */
     e.preventDefault();
     loginFunction(userData);
+
+  
   };
 
   return (
@@ -52,7 +52,12 @@ const Form = ({ loginFunction }) => {
         <div className={styles.logo}>
           <h1 className={styles.title}>Rick and Morty</h1>
         </div>
-        <form className={styles.loginForm} action="" method="get">
+        <form
+          className={styles.loginForm}
+          onSubmit={handleFormSubmit}
+          action=""
+          method="get"
+        >
           <label htmlFor="user">Username:</label>
           <input
             type="text"
@@ -97,9 +102,7 @@ const Form = ({ loginFunction }) => {
               {errors.p1 ? <i>{errors.p1}</i> : <i>{errors.p2}</i>}
             </span>
           </span>
-          <i onClick={handleFormSubmit} type="submit">
-            <NavBtn content={"Go!"} />
-          </i>
+          <input type="submit" />
         </form>
       </div>
     </div>

@@ -7,57 +7,29 @@ import styled from "styled-components";
  */
 
 const CardHeader = ({ id, event, name }) => {
-  const regEx =/^[^\s]+\s+[^\s]+/;
-  const result = name.match(regEx)
-
-
-  /**
- * This function represents the Card Footer
- *
- * 
- */
+  const regEx = /^[^\s]+\s+[^\s]+/;
+  const result = name.match(regEx);
 
   const handleClose = () => {
-    event(id)
-  }
-  
+    event(id);
+  };
 
   return (
     <HeaderDiv>
       <CloseButton onClick={handleClose}></CloseButton>
-      <CardName>{
-      result?
-        result[0]
-      :name
-      
-      }</CardName>
+      <CardName>{result ? result[0] : name}</CardName>
     </HeaderDiv>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const HeaderDiv = styled.header`
   background-color: black;
   display: flex;
   min-height: 60px;
-   width: 320px;
-   width: 100%;
+  width: 320px;
+  width: 100%;
   justify-content: space-between;
   animation: light 5s infinite;
-  
 
   @keyframes light {
     0% {
@@ -94,15 +66,15 @@ const HeaderDiv = styled.header`
       box-shadow: 0px 29px 45px -22px rgba(255, 255, 255, 1);
     }
   }
-  `;
+`;
 const CloseButton = styled.i`
   width: 60px;
   color: black;
   background-color: black;
   position: relative;
-  outline: none!important;
+  outline: none !important;
   /* border: 0.1px solid grey; */
-  
+
   &:before,
   &:after {
     content: "";
@@ -127,10 +99,10 @@ const CloseButton = styled.i`
       transform: translate(-50%, -50%) rotate(180deg);
     }
   }
-  `;
+`;
 const CardName = styled.h2`
-font-size: 120%;
-font-weight: 800;
+  font-size: 120%;
+  font-weight: 800;
   color: white;
   margin-right: 1rem;
 `;

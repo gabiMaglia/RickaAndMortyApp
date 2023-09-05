@@ -2,8 +2,8 @@ export const ADD_FAVOURITE = "addFav";
 export const REMOVE_FAVOURITE = "removeFav";
 
 
-const addFav = (id) => {
-  return { type: ADD_FAVOURITE, payload: id };
+const addFav = (character) => {
+  return { type: ADD_FAVOURITE, payload: character };
 };
 
 const removeFav = (id) => {

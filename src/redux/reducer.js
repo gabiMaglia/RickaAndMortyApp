@@ -5,7 +5,7 @@ const initialState = {
   myFavourites: [],
 };
 
-export default (state = initialState, action) => {
+export  const rootReducer = (state = initialState, action) => {
   /**
    * Reducer.
    * @param {Object} State - the global object.
@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
         ],
       };
     default:
-      return { ...state };
-      break;
+      return state ;
+     
   }
 };
