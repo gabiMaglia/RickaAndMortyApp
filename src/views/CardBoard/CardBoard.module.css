@@ -1,9 +1,30 @@
 .cardBoard {
   max-width: 100vw;
-
-  margin-inline: auto;
   display: flex;
+  justify-content: center;
   align-items: center;
+  border: 1px solid white;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-block: 6rem;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) 6px -2px 16px 0px;
+  overflow-y: hidden;
+  animation-duration: 5s;
+  animation-name: boxShadow;
+}
+.swiper-slide.swiper-slide-active,
+.swiper-slide.swiper-slide-duplicate-active{
+      transform: scale(1) !important;
+}
 
-  overflow-x: scroll;
+@keyframes boxShadow {
+  from {
+    box-shadow: rgba(136, 165, 191, 0.48) -6px 1px 16px 0px,
+      rgba(255, 255, 255, 0.8) -3px -1px 16px 0px;
+  }
+  to {
+    box-shadow: rgba(136, 165, 191, 0.48) 6px -1px 16px 0px,
+      rgba(255, 255, 255, 0.8) 3px 1px 16px 0px;
+  }
 }

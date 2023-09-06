@@ -13,11 +13,12 @@ import { fetchCharacterById } from "../../services/apiCall";
  */
 
 const Detail = ({type}) => {
+  
   const { id } = useParams();
 
   const me = {
     name: 'Gabriel Maglia',
-    image: 'https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.png',
+    image: '../../assets/Gabi.jpg',
     status: 'Alive',
     species: 'Humanoid',
     skills: 'Javascript, HTML, CSS ',

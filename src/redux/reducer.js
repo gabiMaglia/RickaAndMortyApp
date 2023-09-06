@@ -1,38 +1,36 @@
-import { ADD_FAVOURITE, REMOVE_FAVOURITE } from "./actions";
-
+import { ADD_FAVORITE, REMOVE_FAVORITE, CLEAR_FAVORITE } from "./actions";
 
 const initialState = {
   myFavorites: [],
 };
 
-const rootReducer = (state = initialState, {type, payload}) => {
+const rootReducer = (state = initialState, { type, payload }) => {
   /**
    * Reducer.
    * @param {Object} State - the global object.
    */
 
   switch (type) {
-    case ADD_FAVOURITE:
+    case ADD_FAVORITE:
       return {
         ...state,
         myFavorites: [...state.myFavorites, payload],
       };
-      case REMOVE_FAVOURITE:
-        console.log(payload)
-        return {
+    case REMOVE_FAVORITE:
+      return {
         ...state,
-        myFavorites: [
-          state.myFavorites.filter((e) => {
-            e.id !== Number(payload);
-          }),
-        ],
+        myFavorites: state.myFavorites.filter(
+          (char) => char.id !== Number(payload)
+        ),
+      };
+    case CLEAR_FAVORITE:
+      return {
+        ...state,
+        myFavorites: [],
       };
     default:
       return { ...state };
-
   }
 };
 
-
-
-export default rootReducer
+export default rootReducer;

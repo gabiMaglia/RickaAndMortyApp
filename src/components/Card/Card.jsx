@@ -3,8 +3,7 @@ import styles from "./Card.module.css";
 import CardHeader from "./CardParts/CardHeader";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { addFav } from "../../redux/actions";
-import { removeFav } from "../../redux/actions";
+import { addFav, removeFav } from "../../redux/actions";
 import InfoBox from "./CardParts/InfoBox";
 /**
  * Represents a card.
@@ -19,15 +18,23 @@ import InfoBox from "./CardParts/InfoBox";
  */
 
 function Card(props) {
-  const { id, name, status, species, gender, image, addToFav, removeFromFav, myFavorites } = props;
-
+  const {
+    id,
+    name,
+    status,
+    species,
+    gender,
+    image,
+    addToFav,
+    removeFromFav,
+    myFavorites,
+  } = props;
 
   const [isFav, setIsfav] = useState(false);
 
   const handleFavBtn = () => {
-
-    isFav ? removeFromFav(id) : addToFav(props)
-    setIsfav(!isFav)
+    isFav ? removeFromFav(id) : addToFav( props );
+    setIsfav(!isFav);
   };
 
   useEffect(() => {
@@ -36,7 +43,6 @@ function Card(props) {
         setIsfav(true);
       }
     });
-
   }, [myFavorites]);
   return (
     <article className={styles.card}>
@@ -53,14 +59,16 @@ function Card(props) {
       </div>
 
       <div className={styles.footer}>
-        <i >
-          {
-            isFav ? (
-              <i className={styles.link} onClick={handleFavBtn}>❤️</i>
-            ) : (
-              <i className={styles.link} onClick={handleFavBtn}>🤍</i>
-            )
-          }
+        <i>
+          {isFav ? (
+            <i className={styles.link} onClick={handleFavBtn}>
+              ❤️
+            </i>
+          ) : (
+            <i className={styles.link} onClick={handleFavBtn}>
+              🤍
+            </i>
+          )}
         </i>
         <NavLink className={styles.link} to={`/details/${id}`}>
           <div className={styles.detail}> Details... </div>
@@ -70,25 +78,22 @@ function Card(props) {
   );
 }
 
-
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addToFav: (character) => {
-      dispatch(addFav(character))
+      dispatch(addFav(character));
     },
 
     removeFromFav: (id) => {
-      dispatch(removeFav(id))
-    }
-  }
-}
+      dispatch(removeFav(id));
+    },
+  };
+};
 
 const mapStateToProps = (state) => {
   return {
-    myFavorites: state.myFavorites
-  }
-}
+    myFavorites: state.myFavorites,
+  };
+};
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card)
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

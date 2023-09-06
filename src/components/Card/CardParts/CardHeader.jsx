@@ -10,13 +10,8 @@ import { useLocation } from "react-router-dom";
 
 const CardHeader = ({ id, event, name }) => {
   const regEx = /^[^\s]+\s+[^\s]+[^\s]+w/;
-  const result = name.match(regEx);
+  const result = name?.match(regEx);
   const { pathname } = useLocation()
-
-  useEffect(() => {
-    console.log(pathname)
-  }, [])
-
 
   const handleClose = () => {
     event(id);

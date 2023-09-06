@@ -15,7 +15,6 @@ export const fetchCharacterById = async (id) => {
     }
   };
   export const fetchAllData = async () => {
-    
       /**
      * This function fetchs all chracters 
      * 
