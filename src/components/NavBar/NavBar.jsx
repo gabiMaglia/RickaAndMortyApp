@@ -23,7 +23,7 @@ const NavBar = ({ logoutFunction }) => {
           <li className={styles.listItem}>
             <NavLink
               onClick={logoutFunction}
-              // to={ROUTES.LOGIN}
+
               className={styles.navLink}
               activeclassname={styles.active}
             >

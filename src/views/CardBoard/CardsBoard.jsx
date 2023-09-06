@@ -15,7 +15,7 @@ export default function Cards(props) {
       <StarBackground />
 
       {props.characters.length == 0 ? (
-        <p>Agrega al menos una carta al tablero</p>
+        <p>Add at least one card to the board</p>
       ) : (
         props.characters.map((e, key) => {
           return (

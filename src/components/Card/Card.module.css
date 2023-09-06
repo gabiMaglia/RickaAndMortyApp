@@ -54,7 +54,7 @@
   grid-template-columns: 1fr 1fr;
   
   margin-top: 25px;
-  border: 2px solid white;
+  border-top: 1px solid white;
   height: 4.5rem;
   display: grid;
   place-content: center;
@@ -68,4 +68,5 @@
   font-size: 16px;
   color: white;
   font-weight: 900;
+  border-left: 1px solid white;
 }

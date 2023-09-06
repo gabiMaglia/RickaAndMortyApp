@@ -13,7 +13,7 @@ const Favorites = ({ myFavorites }) => {
       <StarBackground />
 
       {myFavorites.length == 0 ? (
-        <p>Agrega al menos una carta a tus favoritos</p>
+        <p>Add at least one card to your favorites</p>
       ) : (
         myFavorites.map((e, key) => {
           return (

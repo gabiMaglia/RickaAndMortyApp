@@ -6,17 +6,17 @@ import StarsBackground from "./components/StarBackground/StarsBackground.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 // VIEWS
-import CardBoard from "./views/CardBoard/CardsBoard.jsx";
-import { AboutMe } from "./views/AboutMe/AboutMe.jsx";
 import Login from "./views/Login/Login.jsx";
-// FILES
-
-import "./App.css";
-import ROUTES from "./helpers/routes.helper.js";
+import CardBoard from "./views/CardBoard/CardsBoard.jsx";
 import CardDetail from "./views/CardDetail/CardDetail.jsx";
-import { fetchCharacterById } from "./services/apiCall.js";
+import { AboutMe } from "./views/AboutMe/AboutMe.jsx";
 import { Error404 } from "./views/ERROR404/Error404.jsx";
 import Favorites from "./views/Favorites/Favorites.jsx";
+// FILES
+import "./App.css";
+import ROUTES from "./helpers/routes.helper.js";
+import { fetchCharacterById } from "./services/apiCall.js";
+import ProtectedRoutes from "./helpers/ProtectedRoutes.jsx";
 
 function App() {
   // Card collection state
@@ -29,16 +29,7 @@ function App() {
 
   const maxCharacters = 826;
 
-  useEffect(() => {
-    /**
-     * this acts as a keylock
-     * if it isnt logged it will redirect you to the '/' 
-     * */
-    !access && navigate('/');
- }, [access]);
-
-
- const login = (userData) => {
+  const login = (userData) => {
     /**
      * Login Function
      * @param {object} userCredentials - Credenciales de inicio de sesión.
@@ -50,7 +41,7 @@ function App() {
       setAccess(true);
       navigate("/home");
     } else {
-      console.error('WROOONG')
+      alert("Email or password invalid")
     }
   };
   const logout = () => {
@@ -59,7 +50,7 @@ function App() {
      */
     setAccess(false);
     navigate("/login");
-   
+
   };
   const addCard = (id) => {
     /**
@@ -102,17 +93,22 @@ function App() {
       <StarsBackground />
 
       <main className="mainLayout">
-        <NavBar logoutFunction= {logout}/>
+        <NavBar logoutFunction={logout} />
         <Routes>
-          <Route path={ROUTES.LOGIN} element={<Login loginFunction = {login}  />} />
-          <Route
-            path={ROUTES.HOME}
-            element={<CardBoard characters={character} close={closeCard} />}
-          />
+          <Route path={ROUTES.LOGIN} element={<Login loginFunction={login} />} />
           <Route path={ROUTES.ABOUT} element={<AboutMe />} />
-          <Route path={ROUTES.FAVORITE} element={<Favorites />} />
-          <Route path="/details/:id" element={<CardDetail />} />
+
+          <Route element={<ProtectedRoutes access={access} />}>
+            <Route
+              path={ROUTES.HOME}
+              element={<CardBoard characters={character} close={closeCard} />}
+            />
+            <Route path={ROUTES.FAVORITE} element={<Favorites />} />
+            <Route path="/details/:id" element={<CardDetail />} />
+          </Route>
+
           <Route path='/*' element={<Error404 />} />
+
         </Routes>
 
         <Footer
