@@ -10,8 +10,8 @@
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
     rgba(255, 255, 255, 0.8) 6px -2px 16px 0px;
   overflow-y: hidden;
-  animation-duration: 5s;
-  animation-name: boxShadow;
+  animation-duration: 5s, 1s;
+  animation-name: boxShadow, fadeIn;
 }
 
 
@@ -23,5 +23,13 @@
   to {
     box-shadow: rgba(136, 165, 191, 0.48) 6px -1px 16px 0px,
       rgba(255, 255, 255, 0.8) 3px 1px 16px 0px;
+  }
+}
+@keyframes fadeIn {
+  from {
+   opacity: 0;
+  }
+  to {
+  opacity: 1;
   }
 }

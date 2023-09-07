@@ -1,6 +1,7 @@
-// DEP
-import { React, useState, useEffect } from "react";
+// DEPENDENVYS AND HOOKS
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import {useLocalStorage} from './hooks/useLocalStorage';
 // COMPONENTS
 import StarsBackground from "./components/StarBackground/StarsBackground.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
@@ -23,7 +24,7 @@ function App() {
   const [character, setCharacter] = useState([]);
   const navigate = useNavigate();
   // Log in data
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useLocalStorage('acces', false);
   const USERNAME = "gab.maglia@gmail.com";
   const PASSWORD = "root1234";
 

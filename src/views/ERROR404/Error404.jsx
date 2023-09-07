@@ -12,8 +12,8 @@ export const Error404 = () => {
 
   const textDeco = {
     textDecoration: 'none',
-    
   }
+  
   return (
     <section className='errorPage'>
     <div className="page_404">

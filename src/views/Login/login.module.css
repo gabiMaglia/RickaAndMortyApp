@@ -9,7 +9,7 @@
     flex-wrap: nowrap;
     margin-inline: auto;
     align-items: center;
-    gap: 10rem;
+    /* gap: 10rem; */
     text-shadow: var(--mainFontColor) 1px 0 5px;
 
 }
@@ -25,7 +25,7 @@
 
 .title{
     font-family: RmFont;
-    font-size: 300%;
+    font-size: 250%;
     letter-spacing: 6px;
     animation: neonLogo 4.5s ease-in-out infinite alternate, titleComming 1s ease-in;
   

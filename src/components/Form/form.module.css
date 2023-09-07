@@ -1,31 +1,35 @@
 
 .loginCard {
   width: 600px;
-  /* height: 600px; */
+
   min-width: 300px;
-  /* min-height: 300px; */
-  max-height: 270px;
+
   display: flex;
-  gap: 2.3rem;
+  /* gap: 1.3rem; */
   flex-direction: column;
   justify-content: center;
   position: relative;
-  top: -26px;
+ 
   border-radius: 12px;
 }
 
 .titleCont {
-  text-align: left;
-  transform: scale(0.9);
+  text-align: center;
+  /* transform: scale(0.9); */
+  margin-bottom: 1.3rem;
 }
 
 .title:nth-child(1) {
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .title:nth-child(2) {
-  font-size: 20px;
+  max-width: 450px;
+  margin-inline: auto;
+  overflow-wrap: break-word;
+  /* text-align: justify; */
+  font-size: 18px;
   font-weight: 200;
 }
 /* .loginBackground {
@@ -46,11 +50,11 @@
 } */
 .loginForm {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
   align-items: center;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   letter-spacing: 1px;
   text-shadow: var(--mainFontColor) 1px 0 5px;
@@ -64,9 +68,11 @@
   color: var(--marine);
   border: none;
   border-bottom: 0.1px solid rgba(255, 255, 255, 0.192);
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 800;
+margin-bottom: .3rem;
 }
+
 
 .succes {
   border: 0.1px solid green !important;
@@ -80,7 +86,7 @@
 }
 
 .errorChart {
-  bottom: -220px;
+  bottom: -70px;
   position: absolute;
   font-size: 16px;
   animation: neonError 4.5s ease-in-out infinite alternate;

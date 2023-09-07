@@ -22,7 +22,7 @@ const GoButton = styled.button`
     text-decoration: none;
     transition: 0.2s ease-in;
     color: #ffffff;
-    text-underline-position: none!important;
+    
 
     &:hover {
         transform: scale(1.1);
