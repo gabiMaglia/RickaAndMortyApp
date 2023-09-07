@@ -8,7 +8,6 @@ import { clearFav } from "../../redux/actions";
 
 /**
  * This function represents the Footer
- *
  * @returns {React.JSX}
  */
 const Footer = (props) => {
@@ -16,10 +15,16 @@ const Footer = (props) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
+    /**
+     * This function takes you back home
+     */
     navigate("/home");
   };
 
   const handleClear = () => {
+    /**
+     * This function clear favorites from global state
+     */
     props.clearFav();
   };
 
@@ -40,7 +45,7 @@ const Footer = (props) => {
           clearBoard={props.clear}
         />
       ) : (
-        <div></div>
+        <p>Proyecto integrador Henry M2 / &copy; Gabriel Maglia 2023</p>
       )}
     </footer>
   );

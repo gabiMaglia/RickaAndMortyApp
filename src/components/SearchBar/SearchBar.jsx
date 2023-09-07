@@ -3,14 +3,11 @@ import { React, useState } from "react";
 import styled from "styled-components";
 import NavBtn from "../common/NavBtn";
 
-
-
 export default function SearchBar({ addNew, maxChar, clearBoard }) {
   /**
-  * This function represents the SearchBar
-  * 
-  * @returns {React.JSX}
-  */
+   * This function represents the SearchBar
+   * @returns {React.JSX}
+   */
   const [input, setintput] = useState("");
 
   /**
@@ -40,11 +37,12 @@ export default function SearchBar({ addNew, maxChar, clearBoard }) {
    *  @param {Event} title - The title of the book.
    */
   const handleIdSearch = (e) => {
-    input && typeof input === "number"
+    input && typeof input === "number" && input < maxChar
       ? addNew(input)
       : window.alert(`insert a number between 1 and ${maxChar}`);
-    e.target.previousSibling.value = "";
-    setintput("");
+    e.target.parentElement.previousElementSibling.value = "";
+    // setintput("");
+    
   };
 
   return (
@@ -67,7 +65,7 @@ export default function SearchBar({ addNew, maxChar, clearBoard }) {
   );
 }
 
-// 
+//
 
 const SearchBarCont = styled.div`
   text-align: center;
@@ -92,4 +90,7 @@ const SearchInput = styled.input`
   height: 3.3rem;
   background-color: rgba(0, 0, 0, 0.034);
   outline: none;
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
 `;

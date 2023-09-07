@@ -6,14 +6,13 @@ import StarBackground from "../../components/StarBackground/StarsBackground";
 
 import styles from "./favorites.module.css";
 
-
 const Favorites = ({ myFavorites }) => {
   return (
     <div className={styles.cardBoard}>
       <StarBackground />
 
       {myFavorites.length == 0 ? (
-        <p>Add at least one card to your favorites</p>
+        <p>Agrega al menos una carta a tus favoritos</p>
       ) : (
         myFavorites.map((e, key) => {
           return (

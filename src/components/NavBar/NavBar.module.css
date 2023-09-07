@@ -24,10 +24,10 @@
 
 .brand {
   display: flex;
-  align-items: flex-start;
-  width: 180px;
-  height: 4rem;
+  width: 220px;
+  height: 5.5rem;
 }
+
 
 
 .listItem {

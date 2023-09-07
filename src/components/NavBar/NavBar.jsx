@@ -5,6 +5,7 @@ import NavBtn from "../common/NavBtn.jsx";
 
 import ROUTES from "../../helpers/routes.helper.js";
 import logo from "../../assets/logo/logo.png";
+import rickFace from "../../assets/png/devilRick.png"
 import styles from "./NavBar.module.css";
 const NavBar = ({ logoutFunction }) => {
   /**
@@ -17,7 +18,11 @@ const NavBar = ({ logoutFunction }) => {
   return (
 
     <nav className={styles.navBar}>
-      <img src={logo} className={styles.brand}></img>
+      <span className={styles.brand} >
+        <img src={logo} />
+      
+        <img src={rickFace}  alt='Rick'></img>
+      </span>
       {location.pathname !== '/' ?
         <ul className={styles.navLink}>
           <li className={styles.listItem}>

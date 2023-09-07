@@ -1,6 +1,10 @@
 :root {
-  --mainBorderColor: #d1c4e9;
-  --mainFontColor: #e4def0;
+  --mainBorderColor: #ffffff;
+  --mainFontColor: #ffffff;
+  --softGreen: #E4F7D2;
+  --opaqueGreen: #748F5D;
+  --mainGreen: #69D400;
+  --marine: #00506B;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,6 +26,7 @@
   background-repeat: repeat-y;
   background-attachment: fixed;
   background-size: cover;
+  
 }
 
 body {
@@ -30,3 +35,4 @@ body {
   padding: 0;
   max-width: 100vw;
 }
+

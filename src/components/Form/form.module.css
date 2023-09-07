@@ -1,116 +1,71 @@
-@font-face {
-  font-family: "RmFont";
-  src: url("../../assets/Fonts/get_schwifty.ttf") format("truetype");
+
+.loginCard {
+  width: 600px;
+  /* height: 600px; */
+  min-width: 300px;
+  /* min-height: 300px; */
+  max-height: 270px;
+  display: flex;
+  gap: 2.3rem;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: -26px;
+  border-radius: 12px;
 }
 
-@keyframes neonLogo {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #48ff0091,
-      0 0 70px #48ff0091, 0 0 80px #48ff0091, 0 0 100px #48ff0091,
-      0 0 150px #48ff0091;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #6efc365b,
-      0 0 35px #6efc365b, 0 0 40px #6efc365b, 0 0 50px #6efc365b,
-      0 0 75px #6efc365b;
-  }
+.titleCont {
+  text-align: left;
+  transform: scale(0.9);
 }
 
-@keyframes neonError {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff000091,
-      0 0 70px #ff000091, 0 0 80px #ff000091, 0 0 100px #ff000091,
-      0 0 150px #ff000091;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fc363677,
-      0 0 35px #fc363677, 0 0 40px #fc363677, 0 0 50px #fc363677,
-      0 0 75px #fc363677;
-  }
+.title:nth-child(1) {
+  font-size: 23px;
+  font-weight: 600;
 }
 
-.logo {
- display: block;
- position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-margin: auto;
+.title:nth-child(2) {
+  font-size: 20px;
+  font-weight: 200;
 }
-.title{
-
-  font-family: RmFont;
-  font-size: 38px;
-  animation: neonLogo 4.5s ease-in-out infinite alternate;
-}
-
-.loginBackground {
+/* .loginBackground {
   position: absolute;
+  top: 33px;
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url(https://i.pinimg.com/564x/9a/d8/ea/9ad8eaf34c647527ae396f562f77857a.jpg);
+    url(https://i.pinimg.com/564x/9a/d8/ea/9ad8eaf34c647527ae396f562f77857a.jpg);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
   border-radius: 12px;
-  display: flex;
-
-}
-.loginBackground::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  backdrop-filter: blur(
-    5px
-  ); /* Ajusta el valor del desenfoque según tus preferencias */
-}
-
-.loginCard {
-  position: relative;
-  top: 3.5rem;
-  width: 50%;
-  height: 41rem;
-  max-height: 580px;
-  border-radius: 14px;
-  margin-block: 3.5rem;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  border: 1px solid white;
-}
-
+  opacity: 0.22;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(112, 173, 122, 0.507) 0px 8px 124px, rgba(148, 170, 154, 0.781) 0px 16px 56px;
+} */
 .loginForm {
-  padding-bottom: 3rem;
-
   display: flex;
   gap: 2rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
   text-transform: uppercase;
-
   font-size: 22px;
   font-weight: 400;
-  letter-spacing: 1.7px;
+  letter-spacing: 1px;
   text-shadow: var(--mainFontColor) 1px 0 5px;
-  background: none;
-  z-index: 99;
 }
 .loginForm input {
   outline: none;
-  background: rgba(59, 59, 59, 0.384);
+  width: 20rem;
+  border-radius: 8px;
+  padding-inline: 1rem;
+  background: var(--mainFontColor);
+  color: var(--marine);
   border: none;
   border-bottom: 0.1px solid rgba(255, 255, 255, 0.192);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .succes {
@@ -124,15 +79,27 @@ margin: auto;
   border-bottom: 0.1px solid rgba(255, 255, 255, 0.192);
 }
 
-.loginForm button {
-  background: none;
-}
-
 .errorChart {
+  bottom: -220px;
+  position: absolute;
   font-size: 16px;
   animation: neonError 4.5s ease-in-out infinite alternate;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: center;
+}
+
+
+@keyframes neonError {
+  from {
+    text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 3px #fff, 0 0 4px #ff000091,
+      0 0 7px #ff000091, 0 0 8px #ff000091, 0 0 1px #ff000091,
+      0 0 1px #ff000091;
+  }
+  to {
+    text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fc363677,
+      0 0 35px #fc363677, 0 0 20px #fc363677, 0 0 20px #fc363677,
+      0 0 15px #fc363677;
+  }
 }

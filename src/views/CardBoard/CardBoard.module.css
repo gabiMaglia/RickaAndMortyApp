@@ -13,10 +13,7 @@
   animation-duration: 5s;
   animation-name: boxShadow;
 }
-.swiper-slide.swiper-slide-active,
-.swiper-slide.swiper-slide-duplicate-active{
-      transform: scale(1) !important;
-}
+
 
 @keyframes boxShadow {
   from {

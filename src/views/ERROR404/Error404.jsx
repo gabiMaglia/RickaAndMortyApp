@@ -1,7 +1,8 @@
 import React from 'react'
 import './error404.css'
 import { NavLink } from 'react-router-dom'
-import NavBtn from '../../components/common/NavBtn'
+import pickeRick from '../../assets/png/PickleRick.png'
+import GoBtn from '../../components/common/GoBtn'
   /**
  * This function represents the ERROR404 page
  * 
@@ -9,12 +10,16 @@ import NavBtn from '../../components/common/NavBtn'
  */
 export const Error404 = () => {
 
+  const textDeco = {
+    textDecoration: 'none',
+    
+  }
   return (
     <section className='errorPage'>
     <div className="page_404">
       <div className="page_404__wrapper">
         <div className="page_404__zirkaAndry_img">
-          <svg
+          {/* <svg
             id="ZirkaAndryImages"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1000 1000"
@@ -102,7 +107,8 @@ export const Error404 = () => {
             />
             <path className="st3" d="M540.2 553.7s-33.1-22.3-84.1-8.5" />
             <circle className="st11" cx="505.8" cy="526.7" r="9.1" />
-          </svg>
+          </svg> */}
+          <img src={pickeRick} className='page_404__zirkaAndry_img' alt="Error 404" />
         </div>
         <p className="page_404__mainText">404 Page</p>
         <p className="page_404__text">
@@ -110,8 +116,8 @@ export const Error404 = () => {
           you requested was moved or deleted. It is also possible that you made a
           small typo when entering the address. Go to the main page.
         </p>
-        <NavLink className="page_404__link" to="/">
-          <NavBtn content={'GO HOME'}/>
+        <NavLink style={textDeco} to="/">
+          <GoBtn  className="page_404__link" content={'GO HOME'}/>
         </NavLink>
       </div>
     </div>
