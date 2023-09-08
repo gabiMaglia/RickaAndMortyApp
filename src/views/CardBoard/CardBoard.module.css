@@ -1,35 +1,29 @@
-.cardBoard {
+.cardboardCont{
   max-width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid white;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  margin-block: 6rem;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) 6px -2px 16px 0px;
-  overflow-y: hidden;
-  animation-duration: 5s, 1s;
-  animation-name: boxShadow, fadeIn;
+  margin: .3rem 2rem;
+  overflow-y: auto; /* Hace que el contenido sea desplazable verticalmente */
+  max-height: calc(100vh - 4rem); /* Tamaño máximo, ajusta el valor según tus necesidades */
+  /* Otros estilos si los tienes */
 }
 
-
-@keyframes boxShadow {
-  from {
-    box-shadow: rgba(136, 165, 191, 0.48) -6px 1px 16px 0px,
-      rgba(255, 255, 255, 0.8) -3px -1px 16px 0px;
-  }
-  to {
-    box-shadow: rgba(136, 165, 191, 0.48) 6px -1px 16px 0px,
-      rgba(255, 255, 255, 0.8) 3px 1px 16px 0px;
-  }
+.title {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 60px;
 }
+
+.cardBoard {
+  display: grid;
+  max-height: 80vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
 @keyframes fadeIn {
   from {
-   opacity: 0;
+    opacity: 0;
   }
   to {
-  opacity: 1;
+    opacity: 1;
   }
 }

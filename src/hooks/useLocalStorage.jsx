@@ -1,6 +1,11 @@
 import { useState } from "react";
 
 export const useLocalStorage = (key, initialValue) => {
+
+  /**  
+  *Hook tomado de MiduDev
+  */
+
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);

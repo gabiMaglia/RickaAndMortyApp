@@ -1,20 +1,24 @@
-.cardBoard {
+.favoritesCont{
   max-width: 100vw;
+}
+
+.cardBoard {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin-left: 3rem;
   margin-right: 3rem;
   margin-block: 6rem;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) 6px -2px 16px 0px;
   overflow-y: hidden;
   animation-duration: 5s;
-  animation-name: boxShadow;
+  /* animation-name: boxShadow; */
 }
 
-
+.sorters {
+  
+  /* transform: scale(12); */
+}
 @keyframes boxShadow {
   from {
     box-shadow: rgba(136, 165, 191, 0.48) -6px 1px 16px 0px,
