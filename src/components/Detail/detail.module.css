@@ -11,6 +11,17 @@
   z-index: -1;
   border-radius: 12px;
 }
+
+
+.statusImg {
+ border: none!important;
+position: absolute;
+left: 480px;
+top: -90px;
+transform: scale(0.6);
+
+}
+
 .detailBackground::before {
   content: "";
   position: absolute;

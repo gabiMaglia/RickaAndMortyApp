@@ -8,12 +8,17 @@ import logo from "../../assets/logo/logo.png";
 import rickFace from "../../assets/png/devilRick.png"
 import styles from "./NavBar.module.css";
 const NavBar = ({ logoutFunction }) => {
+
   /**
   * This function represents the NavBar
   * 
   * @returns {React.JSX}
   */
   const location = useLocation()
+
+  const handleLogOut = () => {
+    logoutFunction()
+  }
 
   return (
 
@@ -27,7 +32,7 @@ const NavBar = ({ logoutFunction }) => {
         <ul className={styles.navLink}>
           <li className={styles.listItem}>
             <NavLink
-              onClick={logoutFunction}
+              onClick={handleLogOut}
 
               className={styles.navLink}
               activeclassname={styles.active}

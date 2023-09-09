@@ -24,12 +24,17 @@ const Favorites = ({ myFavorites }) => {
     <div className={styles.favoritesCont}>
       
       <div className={styles.cardBoard}>
+{myFavorites.length  ? 
 
-        <div className={styles.sorters}>
-          <select onChange={handleOrder} name="Order" id="">
-            <option value="A">Ascendente</option>
-            <option value="B">Descendente</option>
-          </select>
+        <div className={styles.customSelect}>
+          <i>Order by:</i>
+          <label htmlFor='Order'>Id: </label>
+            <select onChange={handleOrder} name="Order" id="">
+              <option value="A">Ascendente</option>
+              <option value="B">Descendente</option>
+            </select>
+         
+          <label htmlFor="Filter"> Gender:  </label>
           <select onChange={handleFilter} name="Filter" id="">
             <option value="All">All</option>
             <option value="Male">Male</option>
@@ -37,8 +42,12 @@ const Favorites = ({ myFavorites }) => {
             <option value="Genderless">Genderless</option>
             <option value="unknown">Unknown</option>
           </select>
+         
         </div>
-          
+    : null
+
+
+}    
       </div>
       <div className={styles.cardBoard}>
         <StarBackground />

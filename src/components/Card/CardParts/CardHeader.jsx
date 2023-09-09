@@ -8,22 +8,14 @@ import { useLocation } from "react-router-dom";
  * @returns {React.JSX}
  */
 
-const CardHeader = ({ id, event, name }) => {
-  const regEx = /^[^\s]+\s+[^\s]+[^\s]+w/;
+const CardHeader = ({ name }) => {
+  const regEx = /^[^\s]+\s+[^\s]+[^\s][^\s]/;
   const result = name?.match(regEx);
-  const { pathname } = useLocation()
-
-  const handleClose = () => {
-    event(id);
-  };
+  if (result) name = name.split(" ").slice(0, 2).join(" ") + "...";
+ 
 
   return (
     <HeaderDiv>
-      {pathname === "/favorite" ?
-        null
-        :
-        <CloseButton onClick={handleClose}></CloseButton>
-      }
       <CardName>{result ? result[0] + "..." : name}</CardName>
     </HeaderDiv>
   );
@@ -74,44 +66,13 @@ const HeaderDiv = styled.header`
     }
   }
 `;
-const CloseButton = styled.i`
-  width: 60px;
-  color: black;
-  background-color: black;
-  position: relative;
-  outline: none !important;
-  /* border: 0.1px solid grey; */
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    width: 80%;
-    height: 2px;
-    background-color: #fff;
-    transition: 0.3s ease-out;
-    left: 50%;
-    top: 50%;
-  }
-  &:after {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  &:before {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-  &:hover,
-  &:focus {
-    &:before,
-    &:after {
-      transform: translate(-50%, -50%) rotate(180deg);
-    }
-  }
-  `;
+
 const CardName = styled.h2`
   flex: 1;
   font-size: 120%;
   font-weight: 800;
   color: white;
-  margin-right: 1rem;
+  justify-self: center;
 `;
 
 export default CardHeader;

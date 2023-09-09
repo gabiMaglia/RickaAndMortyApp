@@ -22,55 +22,68 @@ const CardThumbnail = (props) => {
   const regEx = /^[^\s]+\s+[^\s]+[^\s]/;
   const result = name?.match(regEx);
   if (result) name = name.split(" ").slice(0, 2).join(" ") + "...";
-  
-  const { id, status, image, addToFav, removeFromFav, myFavorites } = props;
-  
+
+  const { id, status, image, addToFav, removeFromFav, myFavorites, onClose  } = props;
+
   const [isFav, setIsfav] = useState(false);
-  
+
   const handleFavBtn = () => {
-      isFav ? removeFromFav(id) : addToFav(props);
-      setIsfav(!isFav);
-    };
-    
-    useEffect(() => {
+    isFav ? removeFromFav(id) : addToFav(props);
+    setIsfav(!isFav);
+  };
+
+  useEffect(() => {
     myFavorites.forEach((fav) => {
       if (fav.id === props.id) {
         setIsfav(true);
       }
     });
   }, [myFavorites]);
+
+
+  const handleClose = () => {
+    onClose(id);
+  };
+
+
+  if(!props) return <p>Loading...</p>
+
   return (
-    <>
-          
+   
       <article className={styles.card}>
-      <div className={styles.header}>
-        <i>
-          {isFav ? (
+        <div className={styles.header}>
+            {isFav ? (
+          <span  className={styles.favIconOn}>
+              <i  className={styles.link} onClick={handleFavBtn}>
+                ❤️
+              </i>
+          </span>
+            ) : ( 
+            <span className={styles.favIconOff}>
               <i className={styles.link} onClick={handleFavBtn}>
-              ❤️
-            </i>
-          ) : (
-              <i className={styles.link} onClick={handleFavBtn}>
-              🤍
-            </i>
-          )}
-        </i>
+                🤍
+              </i>
+            </span>
+            )}
+              <CloseButton className={styles.closeTab} onClick={handleClose}></CloseButton>
+            
           <div className={styles.detail}> {`#${id}`} </div>
-      </div>
-      <div className={styles.mainDiv}>
-        <div className={styles.imgCont}>
-          <img className={styles.img} src={image} alt={name} />
-          <div className={styles.status}>{status}</div>
+
         </div>
-        <div className={styles.infoDiv}></div>
+        <div className={styles.mainDiv}>
+          <div className={styles.imgCont}>
+            <img className={styles.img} src={image} alt={name} />
+            <div className={styles.status}>{status}</div>
+          </div>
+          <div className={styles.infoDiv}></div>
           <Link className={styles.link} to={`/details/${id}`}>
-        <div className={styles.footer}>
-          <em className={styles.footer_text}>{name}</em>
+            <div className={styles.footer}>
+              <em className={styles.footer_text}>{name}</em>
+            </div>
+          </Link>
         </div>
-        </Link>
-      </div>
-    </article>
-    </>
+      </article>
+   
   );
 };
 
@@ -91,8 +104,6 @@ const mapStateToProps = (state) => {
     myFavorites: state.myFavorites,
   };
 };
-
-
 
 const CloseButton = styled.i`
   width: 30px;
@@ -125,6 +136,6 @@ const CloseButton = styled.i`
       transform: translate(-50%, -50%) rotate(180deg);
     }
   }
-  `;
+`;
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardThumbnail);

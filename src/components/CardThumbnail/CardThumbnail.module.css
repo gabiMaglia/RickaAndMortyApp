@@ -13,18 +13,23 @@
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* border-top: 1px solid white; */
+  grid-template-columns: 1fr 1fr 1fr;
   height: 2.5rem;
-
   place-content: center;
   background-color: black;
 }
+
+.favIconOn{
+  border-right: 88px solid var(--mainBorderColor);
+  padding-inline: 1rem;
+}
+.favIconOff{
+  border-right: 88px solid var(--softGreen);
+  padding-inline: 1rem;
+}
 .closeTab {
-
   height: 1.7rem;
-
- 
+  margin-inline: 1rem!important;
 }
 
 .mainDiv {
@@ -81,7 +86,13 @@
 .link {
   text-decoration: none;
   cursor: pointer;
+  color: var(--softGreen);
 }
+.link:hover {
+  color: var(--mainBorderColor);
+}
+
+
 .detail {
   font-size: 16px;
   color: white;
