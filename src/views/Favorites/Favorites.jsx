@@ -24,7 +24,8 @@ const Favorites = ({ myFavorites }) => {
     <div className={styles.favoritesCont}>
       
       <div className={styles.cardBoard}>
-{myFavorites.length  ? 
+      
+   
 
         <div className={styles.customSelect}>
           <i>Order by:</i>
@@ -44,10 +45,10 @@ const Favorites = ({ myFavorites }) => {
           </select>
          
         </div>
-    : null
+   
 
 
-}    
+   
       </div>
       <div className={styles.cardBoard}>
         <StarBackground />

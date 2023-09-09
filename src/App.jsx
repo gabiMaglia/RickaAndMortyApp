@@ -1,7 +1,7 @@
 // DEPENDENVYS AND HOOKS
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { React, useState, useEffect } from "react";
-import {useLocalStorage} from './hooks/useLocalStorage';
+import { useLocalStorage } from "./hooks/useLocalStorage";
 // COMPONENTS
 import StarsBackground from "./components/StarBackground/StarsBackground.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
@@ -24,7 +24,7 @@ function App() {
   const [character, setCharacter] = useState([]);
   const navigate = useNavigate();
   // Log in data
-  const [access, setAccess] = useLocalStorage('acces', false);
+  const [access, setAccess] = useLocalStorage("acces", false);
   const USERNAME = "gab.maglia@gmail.com";
   const PASSWORD = "root1234";
 
@@ -42,7 +42,7 @@ function App() {
       setAccess(true);
       navigate("/home");
     } else {
-      alert("Email or password invalid")
+      alert("Email or password invalid");
     }
   };
   const logout = () => {
@@ -51,7 +51,6 @@ function App() {
      */
     setAccess(false);
     navigate("/login");
-
   };
   const addCard = (id) => {
     /**
@@ -96,8 +95,10 @@ function App() {
       <main className="mainLayout">
         <NavBar logoutFunction={logout} />
         <Routes>
-          <Route path={ROUTES.LOGIN} element={<Login loginFunction={login} />} />
-          <Route path={ROUTES.ABOUT} element={<AboutMe />} />
+          <Route
+            path={ROUTES.LOGIN}
+            element={<Login loginFunction={login} />}
+          />
 
           <Route element={<ProtectedRoutes access={access} />}>
             <Route
@@ -106,10 +107,10 @@ function App() {
             />
             <Route path={ROUTES.FAVORITE} element={<Favorites />} />
             <Route path="/details/:id" element={<CardDetail />} />
+            <Route path={ROUTES.ABOUT} element={<AboutMe />} />
           </Route>
 
-          <Route path='/*' element={<Error404 />} />
-
+          <Route path="/*" element={<Error404 />} />
         </Routes>
 
         <Footer
